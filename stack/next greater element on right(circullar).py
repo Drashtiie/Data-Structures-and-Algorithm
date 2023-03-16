@@ -1,5 +1,7 @@
-l= nums+nums
-
+def nge(l):
+        nums= l
+        l= l+l
+        
         ans=[]
         s=[]
         for i in range(len(l)-1,-1,-1):
@@ -12,3 +14,5 @@ l= nums+nums
             s.append(l[i])
         ans.reverse()
         return ans[:len(nums)]
+        
+print(nge([7,1,2,3,4,5]))
