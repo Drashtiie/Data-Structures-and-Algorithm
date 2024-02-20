@@ -1,19 +1,17 @@
-def uniquePaths(m, n):
+def uniquePaths(m, n, a):
 	# Write your code here.
+	if m>0 and n>0 and a[m][n] == -1:
+		return 0
 
 	if m == 0 and n == 0:
 		return 1
 	elif m <0 or n<0:
 		return 0
-	lp = uniquePaths(m-1,n)
-	rp = uniquePaths(m,n-1)
+	
+	lp = uniquePaths(m-1,n,a)
+	rp = uniquePaths(m,n-1,a)
 	return lp+rp
 
-t = int(input())
 
-print(t)
-for i in range(t):
-	x = input()
-	x=x.split()
 
-	print(uniquePaths(int(x[0]) - 1,int(x[1]) -1))	
+print(uniquePaths(2,2,[[0,0,0],[0,-1,0],[0,0,0]]))	
