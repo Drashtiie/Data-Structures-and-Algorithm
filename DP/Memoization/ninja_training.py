@@ -1,3 +1,5 @@
+n = 3
+m = [-1 for x in range(n+1)]
 def fun(n,a,l):
     print(n,a,l)
     if n < 0:
@@ -5,6 +7,7 @@ def fun(n,a,l):
     p0 = 0
     p1 = 0
     p2 = 0
+    
     if l!= 0:
             p0 = a[n-1][0] + fun(n-2,a,0)
     if l!= 1:
