@@ -24,25 +24,31 @@ def rec(i,b,t):
             return m[i][b][t]
 print(rec(0,0,2))
 
-#memoization
 
+
+#dp
 
 prices = [7,1,5,3,6,4]
-m = [[-1 for x in range(2)] for y in range(len(prices) + 1)]
-def rec(i,b):
-    if i == len(prices):
-        return 0
-    if m[i][b] != -1:
-        return m[i][b]
-    else:
-        if b == 0:
-            b1 = rec(i+1,1) - prices[i]
-            nb = rec(i+1,0)
-            m[i][b] = max(b1,nb)
-            return m[i][b]
-        else:
-            s1 = rec(i+1,0) + prices[i]
-            ns = rec(i+1,1)
-            m[i][b] = max(s1,ns)
-            return m[i][b]
-print(rec(0,0))
+n = len(prices)
+m = [[[-1 for z in range(3)] for x in range(2)] for y in range(len(prices) + 1)]
+
+# print("here")
+for i in range(n,-1,-1):
+    for j in range(0,2):
+        for k in range(0,3):
+        # print(i,j)
+            if k == 2:
+                m[i][j][k] = 0
+            elif i == n:
+                m[i][j][k] = 0
+            else:
+
+                if j == 0:
+                    b1 = m[i+1][1][k] - prices[i]
+                    nb = m[i+1][0][k]
+                    m[i][j][k] = max(b1,nb)
+                else:
+                    s1 = m[i+1][0][k+1] + prices[i]
+                    ns = m[i+1][1][k]
+                    m[i][j][k] = max(s1,ns)
+print(m[0][0][0])
