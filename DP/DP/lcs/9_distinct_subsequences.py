@@ -40,6 +40,25 @@ print(solve(n-1,m-1))
 #dp code
 s= "babgbag"
 t="bag"
+dp = [[-1 for x in range(m+1)] for y in range(n+1)]
+n,m=len(s1),len(s2)
+for i in range(n+1):
+    for j in range(m+1):
+            if j == 0:
+                  dp[i][j] = 1
+            elif i == 0:
+                  dp[i][j] = 0
+            if s[i-1] == t[j-1]:
+                 dp[i][j] = dp[i-1][j-1] + dp[i-1][j]
+            else:
+                  dp[i][j] = dp[i-1][j]
+print(dp[n][m])
+
+
+
+
+s= "babgbag"
+t="bag"
 dn,m=len(s),len(t)
 dp=[[-1 for j in range(m+1)] for i in range(n+1)] #Shifting the indexes
 for i in range(n+1):
