@@ -25,8 +25,11 @@ def dfscycle(V,adj):
                 else:
                     print(cycle)
                     cycle = 1
+                    return 
+                    
                     break
             q.pop(0)
+        return 
                 
     for x in range(V):
             if v[x] == 0:
