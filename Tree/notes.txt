@@ -1,0 +1,4 @@
+Iterative preorder traversal
+    -  Use stack, fo each top element add its right and left to stack and work on whole stack
+
+    
