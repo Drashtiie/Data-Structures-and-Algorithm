@@ -1,0 +1,11 @@
+There are two traversal:
+
+1: BFS:
+
+TC : O(N) + O(2E) // 2E is for edges(the indegree edges, the num of times for loop works)
+SC : adj list, queue, ans ist = O(3N)  ~ O(N)
+
+2: DFS
+
+TC : O(N) + O(2E) 
+SC : recursion stack space + dfs list + vis array => O(3N)  ~ O(N)

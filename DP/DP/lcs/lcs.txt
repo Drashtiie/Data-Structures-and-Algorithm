@@ -1,5 +1,12 @@
 Notes on LCS
 
-
+--brute - Force : Generate all substring using power set
 Problems related to subsequence, substring, insertion, deletion, palindromes etc
 
+
+
+
+Step:
+    1: Express in terms of index
+    2: Explore all possibilities
+    3: Do operation as need

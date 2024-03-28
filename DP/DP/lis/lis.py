@@ -1,11 +1,14 @@
+from bisect import bisect_left
 nums = [10,9,2,5,3,7,101,18]
-m = [[-1 for y in range(len(nums) + 1)]for x in range(len(nums))]
-for i in range(len(nums)+1):
-    m[i][0] = 0
-    m[0][i] = 0
-for i in range(1,len(nums)+1):
-    for j in range(1,len(nums)+1):
-        pass
+m = [[0 for y in range(len(nums) + 1)]for x in range(len(nums) + 1)]
+ans = 0
+for i in range(len(nums)-1,-1,-1):
+    for j in range(i-1,-2,-1):
+
+        if j == -1 or nums[i] > nums[j]:
+            ans = max(ans,1+m[i+1][i+1])
+        m[i][j+1] = ans
+print("here,", m[0][0])
 
 def rec(i,lp):
     if i <0 :
@@ -21,3 +24,33 @@ def rec(i,lp):
     m[i][lp] = max(p,np)
     return m[i][lp]
 print(rec(len(nums),-1))
+# dp
+
+def lisdp(nums):
+    if not nums:
+        return 0
+    n = len(nums)
+    dp = [1] * n
+    for i in range(1,n):
+        for j in range(i):
+            if nums[i] > nums[j]:
+                dp[i] = max(dp[i],dp[j]+1)
+    return max(dp)
+#  binary search optimizes time
+
+def lis_binary(nums):
+    s = [-100000]
+    sl= 1
+    for x in nums:
+        if x>s[-1]:
+            s.append(x)
+            sl+=1
+        else:
+            print(s,x)
+            t = bisect_left(s,x,1,len(s))
+            print(t)
+            s[t] = x
+    return sl - 1
+print(lis_binary(nums))
+            
+       
